@@ -3,6 +3,7 @@ public class Main {
         System.out.println("Hello world!");
         System.out.println("Pelicula: Matrix");
 
+        //Tipos de primitivas
         int fechaDeLanzamiento = 1999;
         boolean incluidoEnElPlan = true;
         double notaDeLaPelicula = 8.2;
@@ -10,6 +11,7 @@ public class Main {
         double media = (8.2 + 6.0 + 9.0)/3;
         System.out.println(media);
 
+        //Trabajando con Strings
         String sinopsis = """
                 Matrix es una paradoja
                 La mejor pelicula del fin del milenio. 
@@ -17,5 +19,9 @@ public class Main {
                 """ + fechaDeLanzamiento;
 
         System.out.println(sinopsis);
+
+        //Casting
+        int clasificacion = (int)(media/2);
+        System.out.println(clasificacion);
     }
 }
