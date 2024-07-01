@@ -10,7 +10,7 @@ public class Loops {
             System.out.println("Escribe la nota que le darias a la pelicula Matrix");
             nota = teclado.nextDouble();
             mediaEvaluaciones = mediaEvaluaciones + nota;
-            
+            //New comment, just testing
         }
 
     }
