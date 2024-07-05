@@ -12,6 +12,6 @@ public class Loops {
             mediaEvaluaciones = mediaEvaluaciones + nota;
             //New comment, just testing
         }
-
+        System.out.println("La media de evaluaciones para Matrix es: " + mediaEvaluaciones/3);
     }
 }
