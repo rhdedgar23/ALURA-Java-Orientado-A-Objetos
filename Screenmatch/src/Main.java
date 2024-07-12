@@ -4,10 +4,12 @@ import com.aluracursos.screenmatch.modelos.Pelicula;
 import com.aluracursos.screenmatch.modelos.Serie;
 import com.aluracursos.screenmatch.calculos.CalculadoraDeTiempo;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Pelicula miPelicula = new Pelicula();
-        miPelicula.setNombre("Encanto");
+        Pelicula miPelicula = new Pelicula("Encanto");
+        //miPelicula.setNombre("Encanto");
         miPelicula.setFechaDeLanzamiento(2021);
         miPelicula.setDuracionEnMinutos(120);
         miPelicula.setIncluidoEnPlan(true);
@@ -34,8 +36,8 @@ public class Main {
         casaDragon.muestraFichaTecnica();
         System.out.println(casaDragon.getDuracionEnMinutos());
 
-        Pelicula otraPelicula = new Pelicula();
-        otraPelicula.setNombre("Matrix");
+        Pelicula otraPelicula = new Pelicula("Matrix");
+        //otraPelicula.setNombre("Matrix");
         otraPelicula.setFechaDeLanzamiento(1998);
         otraPelicula.setDuracionEnMinutos(180);
 
@@ -57,6 +59,27 @@ public class Main {
         episodio.setTotalVisualizaciones(30);
 
         filtroRecomendacion.filtra(episodio);
+
+        //var hace una INFERENCIA del tipo de dato
+        var peliculaDeEdgar = new Pelicula("El senior de los anillos");
+        // De acuerdo a nuestras reglas de negocio, no hace sentido crear (un objeto del tipo Pelicula) sin nombre
+        //var peliculaDeEdgar = new Pelicula();
+        //peliculaDeEdgar.setNombre("El senior de los anillos");;
+        peliculaDeEdgar.setDuracionEnMinutos(180);
+        peliculaDeEdgar.setFechaDeLanzamiento(2001);
+
+        ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
+        listaDePeliculas.add(miPelicula);
+        listaDePeliculas.add(otraPelicula);
+        listaDePeliculas.add(peliculaDeEdgar);
+
+        System.out.println("Tamanio de la lista: " + listaDePeliculas.size());
+        System.out.println("La primera pelicula es: " + listaDePeliculas.get(0).getNombre());
+
+        for (int i = 0; i < listaDePeliculas.size(); i++) {
+            System.out.println("Pelicula " + i + ": " + listaDePeliculas.get(i).getNombre());
+        }
+
 
     }
 }
