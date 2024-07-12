@@ -1,6 +1,8 @@
 package com.aluracursos.screenmatch.modelos;
 
-public class Titulo {
+import com.aluracursos.screenmatch.calculos.Clasificacion;
+
+public class Titulo implements Clasificacion {
     private String nombre;
     private int fechaDeLanzamiento;
     private int duracionEnMinutos;
@@ -63,5 +65,19 @@ public class Titulo {
 
     public double calculaMedia(){
         return sumaDeLasEvaluaciones/totalDeLasEvaluaciones;
+    }
+
+    public void imprimeNombreFechaLanzamiento(){
+        System.out.println("Nombre: " + this.nombre
+            + "\nFecha de Lanzamiento: " + this.fechaDeLanzamiento);
+    }
+
+    @Override
+    public int getClasificacion() {
+        return (int)(calculaMedia()/2);
+    }
+
+    public void imprimeClasificacion(){
+        System.out.println("Clasificacion: " + this.getClasificacion());
     }
 }

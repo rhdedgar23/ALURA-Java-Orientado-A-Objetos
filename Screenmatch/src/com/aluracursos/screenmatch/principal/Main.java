@@ -1,3 +1,5 @@
+package com.aluracursos.screenmatch.principal;
+
 import com.aluracursos.screenmatch.calculos.FiltroRecomendacion;
 import com.aluracursos.screenmatch.modelos.Episodio;
 import com.aluracursos.screenmatch.modelos.Pelicula;
