@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Pelicula miPelicula = new Pelicula("Encanto");
+        Pelicula miPelicula = new Pelicula("Encanto", 2021);
         //miPelicula.setNombre("Encanto");
-        miPelicula.setFechaDeLanzamiento(2021);
+        //miPelicula.setFechaDeLanzamiento(2021);
         miPelicula.setDuracionEnMinutos(120);
         miPelicula.setIncluidoEnPlan(true);
 
@@ -27,18 +27,18 @@ public class Main {
 //
 //        otraPelicula.muestraFichaTecnica();
 
-        Serie casaDragon = new Serie();
-        casaDragon.setNombre("La casa del dragon");
-        casaDragon.setFechaDeLanzamiento(2022);
+        Serie casaDragon = new Serie("La casa del dragon", 2022);
+        //casaDragon.setNombre("La casa del dragon");
+        //casaDragon.setFechaDeLanzamiento(2022);
         casaDragon.setTemporadas(1);
         casaDragon.setMinutosPorEpisodio(50);
         casaDragon.setEpisodiosPorTemporada(10);
         casaDragon.muestraFichaTecnica();
         System.out.println(casaDragon.getDuracionEnMinutos());
 
-        Pelicula otraPelicula = new Pelicula("Matrix");
+        Pelicula otraPelicula = new Pelicula("Matrix", 1998);
         //otraPelicula.setNombre("Matrix");
-        otraPelicula.setFechaDeLanzamiento(1998);
+        //otraPelicula.setFechaDeLanzamiento(1998);
         otraPelicula.setDuracionEnMinutos(180);
 
         CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
@@ -61,12 +61,12 @@ public class Main {
         filtroRecomendacion.filtra(episodio);
 
         //var hace una INFERENCIA del tipo de dato
-        var peliculaDeEdgar = new Pelicula("El senior de los anillos");
+        var peliculaDeEdgar = new Pelicula("El senior de los anillos", 2001);
         // De acuerdo a nuestras reglas de negocio, no hace sentido crear (un objeto del tipo Pelicula) sin nombre
         //var peliculaDeEdgar = new Pelicula();
         //peliculaDeEdgar.setNombre("El senior de los anillos");;
+        //peliculaDeEdgar.setFechaDeLanzamiento(2001);
         peliculaDeEdgar.setDuracionEnMinutos(180);
-        peliculaDeEdgar.setFechaDeLanzamiento(2001);
 
         ArrayList<Pelicula> listaDePeliculas = new ArrayList<>();
         listaDePeliculas.add(miPelicula);
