@@ -109,4 +109,12 @@ public class Titulo implements Clasificacion, Comparable<Titulo>{
         //System.out.println("Clasificacion: " + this.getClasificacion() );
         System.out.println("Duracion: " + this.duracionEnMinutos);
     }
+
+    @Override
+    public String toString() {
+        return "(Titulo: " + this.getNombre()
+                + ", Fecha de Lanzamiento: " + this.getFechaDeLanzamiento()
+                //+ "Clasificacion: " + this.getClasificacion()
+                + ", Duracion: " + this.duracionEnMinutos + ")";
+    }
 }
