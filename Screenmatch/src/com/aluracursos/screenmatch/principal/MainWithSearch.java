@@ -1,5 +1,11 @@
 package com.aluracursos.screenmatch.principal;
 
+import com.aluracursos.screenmatch.modelos.Titulo;
+import com.aluracursos.screenmatch.modelos.TituloOmdb;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -32,6 +38,24 @@ public class MainWithSearch {
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
 
+        String json = response.body();
         System.out.println(response.body());
+
+        //Gson es un serializador/deserializador para archivos JSON
+        //Gson gson = new Gson();
+        Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)//Gson reconoce las variables en minusculas
+                //y las convierte en camel case
+                //En este caso, nuestras variables en minusculas se encuentran en el Record TituloOmdb.java
+                .create();
+        //Titulo miTitulo = gson.fromJson(json, Titulo.class);
+        //miTitulo.imprimeNombreFechaLanzamiento();
+        TituloOmdb miTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+        System.out.println(miTituloOmdb);
+
+        //Para pasar los valores del archivo JSON a nuestra propia instancia de Titulo,
+        //creamos un constructor especial
+        Titulo miTitulo = new Titulo(miTituloOmdb);
+        miTitulo.imprimeTitulo();
     }
 }
