@@ -21,4 +21,9 @@ public class Pelicula extends Titulo implements Clasificacion{
     public void setDirector(String director) {
         this.director = director;
     }
+
+    @Override
+    public String toString() {
+        return "Pelicula: " + this.getNombre() + " (" + this.getFechaDeLanzamiento() + ")";
+    }
 }

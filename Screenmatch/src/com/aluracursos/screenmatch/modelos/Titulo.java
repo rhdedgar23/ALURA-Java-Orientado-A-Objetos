@@ -2,7 +2,7 @@ package com.aluracursos.screenmatch.modelos;
 
 import com.aluracursos.screenmatch.calculos.Clasificacion;
 
-public class Titulo implements Clasificacion {
+public class Titulo implements Clasificacion, Comparable<Titulo>{
     private String nombre;
     private int fechaDeLanzamiento;
     private int duracionEnMinutos;
@@ -79,5 +79,17 @@ public class Titulo implements Clasificacion {
 
     public void imprimeClasificacion(){
         System.out.println("Clasificacion: " + this.getClasificacion());
+    }
+
+    // Para variables no primitivas, se tiene que Override el metodo compareTo de la clase Coparable<Titulo>
+    @Override
+    public int compareTo(Titulo otroTitulo) {
+        return this.getNombre().compareTo(otroTitulo.getNombre());
+    }
+
+    public void imprimeTitulo(){
+        System.out.println("Pelicula: " + this.getNombre());
+        System.out.println("Fecha de Lanzamiento: " + this.getFechaDeLanzamiento());
+        System.out.println("Clasificacion: " + this.getClasificacion() );
     }
 }

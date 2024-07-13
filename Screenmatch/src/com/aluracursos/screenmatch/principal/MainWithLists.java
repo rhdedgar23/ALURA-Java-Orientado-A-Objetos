@@ -5,6 +5,8 @@ import com.aluracursos.screenmatch.modelos.Serie;
 import com.aluracursos.screenmatch.modelos.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainWithLists {
     public static void main(String[] args) {
@@ -42,8 +44,19 @@ public class MainWithLists {
             // Pelicula cuartaPelicula = miPelicula;
             // El codigo de arriba hace que se cree el objeto cuartaPelicula apuntando hacia la misma direccion
             // de memoria a la cual esta apuntando miPelicula.
-
         }
 
+        Collections.sort(lista);
+        System.out.println("Lista de Titulos ordenada alfabeticamente: ");
+        for(Titulo item: lista){
+            item.imprimeTitulo();
+        }
+
+        System.out.println("Lista de Titulos ordenada alfabeticamente: ");
+        System.out.println(lista);
+
+        System.out.println("Lista de Titulos ordenada por fecha de lanzamiento: ");
+        lista.sort(Comparator.comparing(Titulo::getFechaDeLanzamiento));
+        System.out.println(lista);
     }
 }
