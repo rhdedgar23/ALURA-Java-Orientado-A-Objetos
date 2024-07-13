@@ -1,5 +1,6 @@
 package com.aluracursos.screenmatch.principal;
 
+import com.aluracursos.screenmatch.excepciones.DuracionException;
 import com.aluracursos.screenmatch.modelos.Titulo;
 import com.aluracursos.screenmatch.modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
@@ -21,6 +22,7 @@ public class MainWithSearch {
         var busqueda = scanner.nextLine();
         String direccion = "https://www.omdbapi.com/?t=" + busqueda + "&apikey=5f5d4d86";
 
+        try{
         //Usamos un modelo cliente-servidor
         //Necesitamos un cliente para hacer un request.
         HttpClient client = HttpClient.newHttpClient();
@@ -55,7 +57,26 @@ public class MainWithSearch {
 
         //Para pasar los valores del archivo JSON a nuestra propia instancia de Titulo,
         //creamos un constructor especial
-        Titulo miTitulo = new Titulo(miTituloOmdb);
-        miTitulo.imprimeTitulo();
+
+            Titulo miTitulo = new Titulo(miTituloOmdb);
+            miTitulo.imprimeTitulo();
+        }
+        catch(NumberFormatException e){
+            System.out.println("Ocurrio un error: ");
+            System.out.println(e.getMessage());
+        }
+        catch(IllegalArgumentException e){
+            System.out.println("Error en la URI, verifique la direccion.");
+        }
+        catch(DuracionException e){
+            System.out.println(e.getMessage());
+        }
+        catch(Exception e){
+            System.out.println("Ocurrio un error inesperado!!");
+        }
+        System.out.println("Fin de programa!");
+        //Un error sucede cuando sucede algo fuera de nuestro alcance,
+        //como cuando se acaba la memoria.
+        //Una excepcion es algo que nosotros podemos prevenir.
     }
 }
